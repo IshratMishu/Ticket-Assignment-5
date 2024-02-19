@@ -9,8 +9,12 @@ const seatSelection = document.getElementsByClassName("kbd");
         seat = seat + 1;
         availableSeats = availableSeats - 1 ;
         
-        const seatName = event.target.innerText;
+        // seatButton color
         event.target.style.backgroundColor = '#1DD100';
+        event.target.style.color = "white";
+
+        // show seat details by appendChild
+        const seatName = event.target.innerText;
 
         const firstSeat = document.getElementById('first-seat');
         
@@ -28,9 +32,6 @@ const seatSelection = document.getElementsByClassName("kbd");
         firstSeat.appendChild(tr);    
 
 
-const button = document.getElementById("apply-btn");
-console.log(button);
-
 // const totalPrice = document.getElementById("total-price").innerText;
 // const convertTotalPrice = parseInt(totalPrice);
 // const sum = convertTotalPrice + parseInt(ticketPrice);
@@ -42,9 +43,9 @@ console.log(button);
         setInnerText("seat-count", seat);
         setInnerText("seat-left", availableSeats);
         
-        
         totalCost("total-price",parseInt(ticketPrice));
         grandTotal("grand-total",parseInt(ticketPrice));
+        
      })
  }
 
@@ -68,3 +69,42 @@ function grandTotal(id,value){
 }
 
 
+
+// Coupon apply button function
+const applyButton = document.getElementById("btn-apply");
+ applyButton.addEventListener('click', function(){
+
+        const totalPrice = document.getElementById("total-price").innerText;
+        convertTotalPrice = parseInt(totalPrice);
+        const sum = convertTotalPrice + parseInt(ticketPrice);
+
+        // coupon code catch
+ const couponElement = document.getElementById('input-element').value;
+ const couponCode = couponElement;
+
+ if(couponCode === 'NEW15'){
+        const discountElement = document.getElementById("discount-price");
+        const discountPrice = sum * 0.15 ;
+        discountElement.innerText = discountPrice.toFixed(2);
+         
+        const totalSum = convertTotalPrice - discountPrice;
+
+        // hide the label
+        document.getElementById('grand-total').innerText = totalSum;
+        document.getElementById('hide-element').style.display = 'none';
+ }
+ else if(couponCode === 'Couple 20'){
+        const discountElement = document.getElementById("discount-price");
+        const discountPrice = sum * 0.2 ;
+        discountElement.innerText = discountPrice.toFixed(2);
+         
+        const totalSum = convertTotalPrice - discountPrice;
+
+        // hide the label
+        document.getElementById('grand-total').innerText = totalSum;
+        document.getElementById('hide-element').style.display = 'none';
+ }
+ else{
+        alert('Invalid Coupon Code');
+ }
+})
