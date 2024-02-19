@@ -324,7 +324,7 @@
           <div class="card w-72 lg:w-full glass mt-3 mr-2">
             <div class="card-body w-72 lg:w-full bg-base-300 rounded-2xl">
               <div class="flex flex-row justify-between font-semibold text-color-black">
-                <!-- js apply -->
+                <!--seat count js apply -->
                 <h5>Seat <sup><span id="seat-count" class="bg-color-garden text-white p-0.5 rounded-3xl">0</span></sup></h5>
                 <h5 id="cls">Class</h5>
                 <h5>Price</h5>
@@ -332,23 +332,18 @@
   
               <div class="border-2 border-dotted border-gray-400"></div>
   
-              <!-- js apply -->
+              <!--appendChild js apply -->
               <table id="first-seat" class="font-semibold text-color-gray60">
-                
               </table>
 
-              <table id="second-seat" class="font-semibold text-color-gray60">
-                
-              </table>
-
-  
               <div class="border-2 border-dotted border-gray-400"></div>
   
               <div class="flex flex-row justify-between font-semibold text-color-black">
                 <h5>Total Price</h5>
                 <!-- js apply -->
-                <h5>BDT <span>0</span></h5>
+                <h5 class="">BDT <span id="total-price">0</span></h5>
               </div>
+
               <div class="flex flex-row justify-between font-semibold text-color-black">
                 <h5>Discount Price</h5>
                 <!-- js apply -->
@@ -356,15 +351,15 @@
               </div>
               
                 <label class="w-24 lg:w-full flex items-center gap-2">
-                  <input id="why" type="text" class="grow p-0 lg:p-3" placeholder="Have any coupon?" />
-                    <button class="btn bg-color-garden text-white border-white">Apply</button>
+                  <input id="why" type="text" class="input input-bordered grow p-0 lg:p-3" placeholder="Have any coupon?" />
+                    <button id="apply-btn" class="btn bg-color-garden text-white border-white">Apply</button>
                 </label>
                
               
               <div class="flex flex-row justify-between font-semibold text-color-black">
                 <h5>Grand Total</h5>
                 <!-- js apply -->
-                <h5>BDT <span>0</span></h5>
+                <h5>BDT <span id="grand-total">0</span></h5>
               </div>
             </div>
           </div>
