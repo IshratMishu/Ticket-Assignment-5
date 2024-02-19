@@ -6,14 +6,17 @@ const ticketPrice = 550 ;
 const seatSelection = document.getElementsByClassName("kbd");
  for(const oneSeat of seatSelection){
      oneSeat.addEventListener('click', function(event) {
-        if(seat <4 ){
+        if(!oneSeat.classList.contains("selectedSeat") && seat <4 ){
                 seat = seat + 1;
         availableSeats = availableSeats - 1 ;
             
+
         // seatButton color
         event.target.style.backgroundColor = '#1DD100';
         event.target.style.color = "white";
-        
+        oneSeat.classList.add("selectedSeat");
+                
+
         // show seat details by appendChild
         const seatName = event.target.innerText;
 
@@ -45,13 +48,18 @@ const seatSelection = document.getElementsByClassName("kbd");
         
         totalCost("total-price",parseInt(ticketPrice));
         grandTotal("grand-total",parseInt(ticketPrice));
-        }    
+        }   
+
+        else if (oneSeat.classList.contains("selectedSeat")) {
+                alert('You have already selected this seat.');
+        } 
+
 else{
         alert('you can select only 4 seats');
 }
-  
+
      })
- }
+}
 
 
 function totalCost(id,value){
@@ -112,3 +120,6 @@ const applyButton = document.getElementById("btn-apply");
         alert('Invalid Coupon Code');
  }
 })
+
+
+
