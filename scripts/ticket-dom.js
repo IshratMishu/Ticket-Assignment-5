@@ -1,4 +1,5 @@
 
+
 let seat = 0 ;
 let availableSeats = 40 ;
 const ticketPrice = 550 ;
@@ -14,9 +15,11 @@ const seatSelection = document.getElementsByClassName("kbd");
         // seatButton color
         event.target.style.backgroundColor = '#1DD100';
         event.target.style.color = "white";
+
+        // only one seat select
         oneSeat.classList.add("selectedSeat");
                 
-
+        
         // show seat details by appendChild
         const seatName = event.target.innerText;
 
@@ -48,16 +51,17 @@ const seatSelection = document.getElementsByClassName("kbd");
         
         totalCost("total-price",parseInt(ticketPrice));
         grandTotal("grand-total",parseInt(ticketPrice));
+
+        // Enable apply button
+        applyButton.removeAttribute('disabled');
         }   
 
         else if (oneSeat.classList.contains("selectedSeat")) {
                 alert('You have already selected this seat.');
         } 
-
 else{
         alert('you can select only 4 seats');
 }
-
      })
 }
 
