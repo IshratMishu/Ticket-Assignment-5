@@ -6,13 +6,14 @@ const ticketPrice = 550 ;
 const seatSelection = document.getElementsByClassName("kbd");
  for(const oneSeat of seatSelection){
      oneSeat.addEventListener('click', function(event) {
-        seat = seat + 1;
+        if(seat <4 ){
+                seat = seat + 1;
         availableSeats = availableSeats - 1 ;
-        
+            
         // seatButton color
         event.target.style.backgroundColor = '#1DD100';
         event.target.style.color = "white";
-
+        
         // show seat details by appendChild
         const seatName = event.target.innerText;
 
@@ -29,8 +30,7 @@ const seatSelection = document.getElementsByClassName("kbd");
         tr.appendChild(td);        
         tr.appendChild(td2);        
         tr.appendChild(td3) ;
-        firstSeat.appendChild(tr);    
-
+        firstSeat.appendChild(tr);
 
 // const totalPrice = document.getElementById("total-price").innerText;
 // const convertTotalPrice = parseInt(totalPrice);
@@ -39,13 +39,17 @@ const seatSelection = document.getElementsByClassName("kbd");
 // const grandTotal = document.getElementById("grand-total").innerText;
 // const convertGrandTotal = parseInt (grandTotal);
 // const sum2 = convertGrandTotal + parseInt(ticketPrice) ;
-
+        
         setInnerText("seat-count", seat);
         setInnerText("seat-left", availableSeats);
         
         totalCost("total-price",parseInt(ticketPrice));
         grandTotal("grand-total",parseInt(ticketPrice));
-        
+        }    
+else{
+        alert('you can select only 4 seats');
+}
+  
      })
  }
 
